@@ -37,11 +37,11 @@ const Header = () => {
           />
         </form>
 
-        <div className="flex items-center space-x-8 mt-4 sm:mt-0 flex-1 sm:justify-end pr-9">
+        <div className="flex items-center justify-between mt-4 sm:mt-0 flex-1 sm:justify-end sm:space-x-8 pr-9">
           {/* Basket */}
           <Link
             href="/basket"
-            className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded sm:mx-4 mx-auto"
           >
             <TrolleyIcon className="w-6 h-6" />
             <span>My Basket</span>
@@ -52,7 +52,7 @@ const Header = () => {
             <SignedIn>
               <Link
                 href="/orders"
-                className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded sm:mx-4 mx-auto"
               >
                 <PackageIcon className="w-6 h-6" />
                 <span>My Orders</span>
