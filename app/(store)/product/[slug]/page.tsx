@@ -1,3 +1,5 @@
+import AddToBasketButton from "@/components/addToBasket";
+import { Button } from "@/components/ui/button";
 import { imageUrl } from "@/lib/imageUrl";
 import { getProductBySlug } from "@/sanity/lib/products/getProductBySlug";
 import { PortableText } from "next-sanity";
@@ -51,6 +53,9 @@ const ProductPage = async ({
           </div>
           <div className=" max-w-none mb-6">
             {product.description && product.description}
+          </div>
+          <div className="mt-6">
+            <AddToBasketButton product={product} disabled={isOutOfStock} />
           </div>
         </div>
       </div>
