@@ -1,5 +1,6 @@
 "use client";
 
+import { usebasketStore } from "@/zustandStore/store";
 import {
   ClerkLoaded,
   SignedIn,
@@ -10,10 +11,13 @@ import {
 } from "@clerk/nextjs";
 import { PackageIcon, TrolleyIcon } from "@sanity/icons";
 import Link from "next/link";
-import React from "react";
+import React, { use } from "react";
 
 const Header = () => {
   const { user } = useUser();
+  const itemCount = usebasketStore((state) =>
+    state.items.reduce((total, item) => total + item.quantity, 0)
+  );
 
   return (
     <header className="flex flex-wrap justify-between items-center px-4 py-2 w-full">
@@ -41,9 +45,14 @@ const Header = () => {
           {/* Basket */}
           <Link
             href="/basket"
-            className="flex items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded sm:mx-4 mx-auto"
+            className="flex  relative items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded sm:mx-4 mx-auto"
           >
             <TrolleyIcon className="w-6 h-6" />
+            {itemCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                {itemCount}
+              </span>
+            )}
             <span>My Basket</span>
           </Link>
 

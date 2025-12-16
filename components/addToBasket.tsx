@@ -10,7 +10,7 @@ const AddToBasketButton = ({
   disabled,
 }: {
   product: Product;
-  disabled: boolean;
+  disabled?: boolean;
 }) => {
   const { addItem, removeItem, getItemCount } = usebasketStore();
   const itemCount = getItemCount(product._id);
@@ -46,5 +46,3 @@ const AddToBasketButton = ({
 };
 
 export default AddToBasketButton;
-
-// build the header to show the item count on the basket
