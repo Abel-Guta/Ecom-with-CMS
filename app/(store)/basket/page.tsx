@@ -1,5 +1,8 @@
 "use client";
-import { Metadata } from "@/actions/createCheckoutSession";
+import {
+  createCheckoutSession,
+  Metadata,
+} from "@/actions/createCheckoutSession";
 import AddToBasketButton from "@/components/addToBasket";
 import { imageUrl } from "@/lib/imageUrl";
 import { usebasketStore } from "@/zustandStore/store";
@@ -41,7 +44,9 @@ const BasketPage = () => {
       };
 
       const checkoutUrl = await createCheckoutSession(groupedItems, metadata);
-      router.push(checkoutUrl);
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      }
     } catch (error) {
       console.error("Checkout error:", error);
     } finally {
