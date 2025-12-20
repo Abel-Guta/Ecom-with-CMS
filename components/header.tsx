@@ -26,7 +26,7 @@ const Header = () => {
           href="/"
           className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
         >
-          H-Shop
+          MENU
         </Link>
 
         <form
@@ -36,7 +36,7 @@ const Header = () => {
           <input
             name="query"
             type="text"
-            placeholder="Search products..."
+            placeholder="Search foods..."
             className="bg-gray-100 text-gray-800 px-4 py-2 rounded focus:ring-2 focus:ring-blue-500 w-full max-w-4xl"
           />
         </form>
@@ -53,7 +53,7 @@ const Header = () => {
                 {itemCount}
               </span>
             )}
-            <span>My Basket</span>
+            <span>choosen</span>
           </Link>
 
           <ClerkLoaded>
